@@ -1,0 +1,55 @@
+{% set name = "seagullmesh" %}
+{% set version = "0.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+    
+build:
+  number: 1
+  
+source:
+  # url: https://github.com/scikit-geometry/{{ name }}/archive/{{ version }}.tar.gz
+  # sha256: 11d2ca3361b680b27e21ce651cf9f3a9dc017195626c73627cc1d6ee6b745ff4
+  # git_url: https://github.com/darikg/seagull.git
+  git_url: ../seagull
+  patches:
+    - osx_cpp14.patch  # [osx]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - pip
+    - python
+    - pybind11
+    - cgal-cpp=5.4
+    - eigen
+  run:
+    - python
+    - cgal-cpp=5.4
+    - eigen
+
+    # Just to silence the warnings, but not adding vs2015_runtime for win...
+    - boost-cpp
+    - mpir  # [win]
+    - gmp  # [not win]
+    - mpfr
+    
+test:
+  imports:
+    - seagullmesh
+
+    
+about:
+  home: https://github.com/darikg/seagull
+  license: LGPL-3.0-or-later
+  license_file: LICENSE
+  summary: Python bindings for CGAL 3d surface mesh processing
+  doc_url: https://github.com/darikg/seagull
+  dev_url: https://github.com/darikg/seagull
+
+extra:
+  recipe-maintainers:
+    - darikg
