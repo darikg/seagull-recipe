@@ -11,8 +11,8 @@ build:
 source:
   # url: https://github.com/scikit-geometry/{{ name }}/archive/{{ version }}.tar.gz
   # sha256: 11d2ca3361b680b27e21ce651cf9f3a9dc017195626c73627cc1d6ee6b745ff4
-  # git_url: https://github.com/darikg/seagull.git
-  git_url: ../seagull
+  git_url: https://github.com/darikg/seagullmesh.git
+  # git_url: ../seagull
   patches:
     - osx_cpp14.patch  # [osx]
 
@@ -43,12 +43,12 @@ test:
 
     
 about:
-  home: https://github.com/darikg/seagull
+  home: https://github.com/darikg/seagullmesh
   license: LGPL-3.0-or-later
   license_file: LICENSE
   summary: Python bindings for CGAL 3d surface mesh processing
-  doc_url: https://github.com/darikg/seagull
-  dev_url: https://github.com/darikg/seagull
+  doc_url: https://github.com/darikg/seagullmesh
+  dev_url: https://github.com/darikg/seagullmesh
 
 extra:
   recipe-maintainers:
